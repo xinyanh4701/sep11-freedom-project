@@ -9,7 +9,11 @@ I created a kaboom template (it is the first one that pops up) on [replit](https
 Some of the concepts I learned:
 * game object - a character in the game
 * `add()` - a function that adds all of the components you want in a character
-* 
+* `area()` - gives a character an area like how we give a rectangle an area of 50 in.
+* `body()` - gives the object physical world characteristics
+* `onKeyPress()` - runs code when a certain key is played
+* `pos()` - object's position on the display
+
 
 I am currently in stages 3 and 4 of the **Engineering Design Process (EDP)** which is to *brainstorm possible solutions* and *plan the most promising solution*. These steps are not really related to what I am doing which is learning the tool. However, learning my tool will definitely help me brainstorm possible solutions and plan the most promising solution. The next step in the **EDP** is to *create a prototype* meaning I am going to build my game which is going to happen in a later time.
 
