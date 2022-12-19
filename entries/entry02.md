@@ -13,6 +13,8 @@ Some of the concepts I learned:
 * `body()` - gives the object physical world characteristics
 * `onKeyPress()` - runs code when a certain key is played
 * `pos()` - object's position on the display
+* `color()` - inside the parenthesis, you input 3 values: `r(red), g(green), b(blue` ranging from 0 - 255
+* `solid()` - makes the object not invisible meaning another object can't go through it
 
 As I followed along the tutorial, I tinkered with the code they gave me to start with.
 
@@ -47,7 +49,7 @@ Here is what I found:
 * `rect()` renders a triangle. It accepts 2 arguments, the width and height, which we give it the game width (returned by width()) and height of 48 pixels
 * `pos()` position. We give it a x: 0 and y: height() - 48 so it sits right on the bottom of the screen
 
-According to this, 
+The original platform has a height of `48px` and I only changed `48` from `pos(0, height() - 48)` to `pos(0, height() - 100)`. The `height()` in `(0, height() - 48)` is 48 because the `rect()` function had 48 at the end of the parameter which defines `height()`. The position of the bottom of the screen is (0 , 0). To cancel out `height()`, you need to type down the height value from the `rect()` function in this case for the platform to touch the bottom of the screem. However, I am still not really sure why the platform is off the bottom of the screen but, at least I know how to make an object touch the bottom of the screen.
 
 I am currently in stages 3 and 4 of the **Engineering Design Process (EDP)** which is to *brainstorm possible solutions* and *plan the most promising solution*. These steps are not really related to what I am doing which is learning the tool. However, learning my tool will definitely help me brainstorm possible solutions and plan the most promising solution. The next step in the **EDP** is to *create a prototype* meaning I am going to build my game which is going to happen in a later time.
 
