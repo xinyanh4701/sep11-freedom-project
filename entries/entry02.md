@@ -1,5 +1,5 @@
 # Entry 2
-##### 12/1/22
+##### 12/18/22
 
 After writing the [1st entry](entry01.md), learning the tool is the next step.
 For the first few weeks, I played more on the [kaboom js playground](https://kaboomjs.com/play?demo=add) which is a sandbox where you can tinker with the tool. Afterwards, I searched up on Google for [kaboom js](https://kaboomjs.com/) tutorials and I found a [video on YouTube](https://www.youtube.com/watch?v=4OaHB0JbJDI) that helped me learn more about the tool.
@@ -14,6 +14,40 @@ Some of the concepts I learned:
 * `onKeyPress()` - runs code when a certain key is played
 * `pos()` - object's position on the display
 
+As I followed along the tutorial, I tinkered with the code they gave me to start with.
+
+*The original code*
+```js
+// add platform
+add([
+	rect(width(), 48),
+	pos(0, height() - 48),
+	outline(4),
+	area(),
+	solid(),
+	color(127, 200, 255),
+])
+```
+
+*My tinkered version*
+```js
+add([
+	rect(width(), 48),
+	pos(0, height() - 100),
+	outline(10),
+	area(),
+	solid(),
+	color(255, 200, 255),
+])
+```
+The platform ended up not touching the bottom of the screen and actually stay off the bottom of the screen. That made me wonder, so I went back to the markdown (where I learned some Kaboom) to find the reason why.
+
+Here is what I found:
+
+* `rect()` renders a triangle. It accepts 2 arguments, the width and height, which we give it the game width (returned by width()) and height of 48 pixels
+* `pos()` position. We give it a x: 0 and y: height() - 48 so it sits right on the bottom of the screen
+
+According to this, 
 
 I am currently in stages 3 and 4 of the **Engineering Design Process (EDP)** which is to *brainstorm possible solutions* and *plan the most promising solution*. These steps are not really related to what I am doing which is learning the tool. However, learning my tool will definitely help me brainstorm possible solutions and plan the most promising solution. The next step in the **EDP** is to *create a prototype* meaning I am going to build my game which is going to happen in a later time.
 
