@@ -18,6 +18,9 @@ Some of the concepts I learned:
 
 As I followed along the tutorial, I tinkered with the code they gave me to start with.
 
+<!-- ![kaboom-sandbox-1](img/kaboom-sandbox-1.png) -->
+<img src="img/kaboom-sandbox-1.png" width="300">
+
 *The original code*
 ```js
 // add platform
@@ -30,6 +33,8 @@ add([
 	color(127, 200, 255),
 ])
 ```
+<!-- ![kaboom-sandbox-2](img/kaboom-sandbox-2.png) -->
+<img src=">
 
 *My tinkered version*
 ```js
