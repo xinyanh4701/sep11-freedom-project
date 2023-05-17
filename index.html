@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" />
+        <style>
+            /* CSS */
+
+        </style>
+
+        <title>Title</title>
+    </head>
+    <body>
+        <!-- HTML -->
+
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
+        <script type="module">
+
+            // import kaboom lib
+            import kaboom from "https://unpkg.com/kaboom/dist/kaboom.mjs";
+
+
+            // add a piece of text at position (120, 80)
+            // initialize context
+            kaboom({background: [246, 244, 230],
+            font: "sinko"
+            });
+            // load sprites
+            loadPedit("baking soda", "sprites/baking soda.pedit");
+            loadPedit("bowl", "sprites/bowl.pedit");
+            loadPedit("butter", "sprites/butter.pedit");
+            loadSprite("cake", "sprites/cake.png");
+            loadPedit("clock", "sprites/clock.pedit");
+            loadPedit("egg", "sprites/egg.pedit");
+            loadPedit("flour", "sprites/flour.pedit");
+            loadPedit("milk", "sprites/milk.pedit");
+            loadPedit("oven", "sprites/oven.pedit");
+            loadPedit("salt", "sprites/salt.pedit");
+            loadPedit("start", "sprites/start.pedit");
+            loadPedit("sugar", "sprites/sugar.pedit");
+            loadSound("score", "sounds/score.mp3");
+            loadSound("blip", "sounds/blip.mp3");
+            loadSound("good-result-sound", "sounds/good-result-sound.mp3");
+
+            const max = 24
+
+            scene("intro", () => {
+            add([
+                text("Cake Game", {
+                size: 55,
+                width: width() - max,
+                }),
+                pos(width()/2, height()/2 - 100),
+                origin("center"),
+            ])
+            add([
+                sprite("start"),
+                pos(width()/2, height()/2),
+                scale(10),
+                origin("center"),
+            ])
+            wait(0.5, () => {
+                add([
+                text("Press Enter", {
+                    size: 50,
+                    width: width() - max,
+                }),
+                pos(width()/2, height()/2+100),
+                origin("center"),
+                "enter",
+                ])
+            })
+
+            onKeyPress("enter", () => {
+                go("first")
+            })
+            })
+            go("intro");
+
+            scene("first", () => {
+            add([
+                sprite("baking soda"),
+                pos(width()/5, height()/3),
+                scale(5),
+                "baking soda",
+            ])
+            add([
+                sprite("butter"),
+                pos(width()/5 * 2, height()/3),
+                scale(5),
+                "butter",
+            ])
+            add([
+                sprite("egg"),
+                pos(width()/5 * 3, height()/3),
+                scale(5),
+                "butter",
+            ])
+            add([
+                sprite("flour"),
+                pos(width()/5 * 4, height()/3),
+                scale(5),
+                "flour",
+            ])
+            add([
+                sprite("milk"),
+                pos(width()/4, height()/3 * 2),
+                scale(5),
+                "milk",
+            ])
+            add([
+                sprite("salt"),
+                pos(width()/4 * 2, height()/3 * 2),
+                scale(5),
+                "salt",
+            ])
+            add([
+                sprite("sugar"),
+                pos(width()/4 * 3, height()/3 * 2),
+                scale(5),
+                "sugar",
+            ])
+            add([
+                text("Here are all of the ingredients we need. Just click anywhere to go to the next scene.", {
+                size: 35,
+                width: width() - max,
+                }),
+                pos(75,50),
+            ])
+            onClick(() => go("second"))
+            })
+
+
+            scene("second", () => {
+            const player = add([
+                sprite("bowl"),
+                pos(width()/2, height()/2),
+                origin("center"),
+                area(),
+                solid(),
+                scale(3),
+            ])
+
+            const SPEED = 480;
+
+            onKeyDown("right", () => {
+                player.move(SPEED,0)
+            })
+            onKeyDown("left", () => {
+                player.move(-SPEED, 0)
+            })
+            onKeyDown("up", () => {
+                player.move(0, -SPEED)
+            })
+            onKeyDown("down", () => {
+                player.move(0, SPEED)
+            })
+
+            loop(0.5, () => {
+                const token = add([
+                sprite("clock"),
+                pos(rand(vec2(50), vec2(width()-50, height()-50))),
+                "token",
+                area(),
+                solid(),
+                scale(2),
+                ])
+                wait(0.5, () => {
+                destroy(token)
+                })
+            })
+
+            add([
+                text("The ingredients have already been put into the mixing bowl. We need to get a clock token to continue our journey. Use the arrow keys to help you get the clock token. Once you get a clock token, another challenge awaits you ", {
+                size: 20,
+                width: width() - 50,
+                }),
+                pos(50,50),
+            ])
+
+            player.onCollide("token", (token) => {
+                play("score"),
+                go("third")})
+
+            })
+
+            scene("third", () => {
+            add([
+                text("Now that we have mixed our ingredients, press the space bar to power up the oven. We need to reach 100% to finish baking the cake.", {
+                size: 30,
+                width: width() - max,
+                }),
+                pos(50,50),
+            ])
+            add([
+                sprite("oven"),
+                pos(width()/2, height()/2),
+                origin("center"),
+                scale(10),
+            ])
+                var times = 0
+            onKeyPress("space", () => {
+                play("blip")
+
+                const timesCounter = add([
+                text(times, {
+                    size: 25,
+                }),
+                pos(100, height() - 100),
+                ])
+                timesCounter.text = times + "%"
+                times++
+                if(times === 100) {
+                play("score")
+                timesCounter.text = "The cake is ready"
+                wait(5, () => {
+                    go("ending")
+                })
+                }
+            })
+
+            })
+
+            scene("ending", () => {
+            add([
+                text("Thanks for playing. Here's your cake",{
+                size:25,
+                }),
+                pos(width()/2,height()/2),
+                origin("center"),
+            ])
+            add([
+                sprite("cake"),
+                scale(0.5),
+                pos(width()/2,height()/2 + 100),
+                origin("center"),
+            ])
+            play("good-result-sound")
+            })
+
+            </script>
+    </body>
+</html>
