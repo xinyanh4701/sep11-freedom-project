@@ -18,7 +18,7 @@ Presentation:
 [https://docs.google.com/presentation/d/1sVBJ3XjajvAtYxAoPKWP9viC68ll9e1K-qTcksPnSFI/edit?usp=sharing](https://docs.google.com/presentation/d/1sVBJ3XjajvAtYxAoPKWP9viC68ll9e1K-qTcksPnSFI/edit?usp=sharing)
 
 ## Implications
-X
+My game has impacted the Earth globally, socially, and economically. Globally, my game is on the internet which requires electricity in order to operate. Producing electricity may cause damage to the environment as the world still depend on fossil fuels to produce electricity. Environmentally, my cake game might have already exert some amount of dangerous chemicals in the air. Since my game is on a server which are big systems, my game is taking up storage in a server whcih again can cause environmental impacts. Individually, my game is a great way to kill time for a person who is bored for a few minutes. This way, the person would have a purpose to fulfill in those boring times. Culturally, people would be exposed to the simple steps of how a cake is made. In addition, people would know what are the ingredients to make a cake. Job wise, my game might inspire people who have played the game to pick up a hobby of baking or potentially get a job doing pastries. On the technological side, since I used Kaboom JS to help me build my cake game, people might also be inspired to learn Kaboom JS to create other fun and amazing projects.
 
 ---
 
